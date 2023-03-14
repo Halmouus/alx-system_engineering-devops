@@ -1,0 +1,3 @@
+#!/bin/bash
+printf "%x\n" $((0x${WATER} + 0x${STIR})) | tr '[:lower:]' '[:upper:]' | xargs printf "%s\n" | tr '0123456789ABCDEF' 'bestchol0123456789'
+
