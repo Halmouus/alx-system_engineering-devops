@@ -1,1 +1,16 @@
 #!/usr/bin/env bash
+#scripts that displays numbers from 1 to 20 and using case for spacial values at 4, 9 and 17
+i=1
+while ((i <= 20)); do
+    echo $i
+    case $i in
+        4)
+            echo "bad luck from China" ;;
+        9)
+            echo "bad luck from Japan" ;;
+        17)
+            echo "bad luck from Italy" ;;
+        *) ;;
+    esac
+    ((i++))
+done
