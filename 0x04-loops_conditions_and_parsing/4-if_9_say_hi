@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#scripts that loops over 10 iterations: 4 bad luck, 8 is your chance, else Best school
+#script that displays Best School 10 times, displays Best School and then Hi on a new line on 9th line
 i=1
 while ((i <= 10)); do
     echo "Best School"
