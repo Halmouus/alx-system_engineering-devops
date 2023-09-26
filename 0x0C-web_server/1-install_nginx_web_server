@@ -2,5 +2,5 @@
 #script that configures a new Ubuntu machine to respect given requirements
 apt-get update
 apt-get -y install nginx
-echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
-service nginx start
+sudo sh -c 'echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html'
+sudo service nginx start
