@@ -2,5 +2,5 @@
 #script that configures a new Ubuntu machine to respect given requirements
 sudo apt-get update
 sudo apt-get -y install nginx
-echo "<html><body>Hello World!</body></html>" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 sudo service nginx start
