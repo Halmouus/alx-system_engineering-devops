@@ -1,1 +1,6 @@
 #!/usr/bin/env bash
+#Configuration of Nginx server for redirection
+
+[ -x "$(command -v nginx)" ] || { apt-get update -y && apt-get install -y nginx; }
+sed -i '/server {/a \    location /redirect_me {\n        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n    }' /etc/nginx/sites-available/default
+service nginx restart
