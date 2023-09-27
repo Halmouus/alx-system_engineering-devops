@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #Configuration of Nginx server for redirection
 
-[ -x "$(command -v nginx)" ] || { apt-get update -y && apt-get install -y nginx; }
-sed -i '/server {/a \    location /redirect_me {\n        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n    }' /etc/nginx/sites-available/default
-service nginx restart
+udo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+sudo service nginx restart
