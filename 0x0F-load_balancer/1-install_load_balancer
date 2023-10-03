@@ -1,2 +1,26 @@
 #!/usr/bin/env bash
-#server configuration and hostname fetching
+#HAproxy installation and configuration
+apt-get -y update
+apt-get -y install haproxy
+cat <<EOL > /etc/haproxy/haproxy.cfg
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+frontend http-in
+    bind *:80
+    default_backend webservers
+
+backend webservers
+    balance roundrobin
+    server web-01 [STUDENT_ID]-web-01:80 check
+    server web-02 [STUDENT_ID]-web-02:80 check
+EOL
+
+service haproxy restart
