@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#server configuration and hostname fetching
+sudoapt-get -y update
+sudoapt-get -y install nginx
+host_name=$(hostname)
+sudoecho "add_header X-Served-By $host_name;" | tee /etc/nginx/nginx.conf
+sudo service nginx reload
