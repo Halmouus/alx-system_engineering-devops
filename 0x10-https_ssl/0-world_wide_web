@@ -13,6 +13,13 @@ function get_info {
 }
 
 dom=$1
-subd=$2
 
-get_info "$dom" "$subd"
+if [ "$#" -ne 2 ]; then
+    get_info "$dom" "www"
+    get_info "$dom" "lb-01"
+    get_info "$dom" "web-01"
+    get_info "$dom" "web-02"
+else
+    subd=$2
+    get_info "$dom" "$subd"
+fi
