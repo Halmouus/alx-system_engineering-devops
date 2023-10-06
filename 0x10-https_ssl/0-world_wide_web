@@ -12,7 +12,9 @@ function get_info {
 
 dom=$1
 
-if [ "$#" -lt 2 ]; then
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <domain> <subdomain>"
+elif [ "$#" -lt 2 ]; then
     get_info "$dom" "www"
     get_info "$dom" "lb-01"
     get_info "$dom" "web-01"
