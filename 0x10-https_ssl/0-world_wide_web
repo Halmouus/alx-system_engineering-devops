@@ -2,10 +2,8 @@
 #script that will display information about subdomains
 
 function get_info {
-    local dom=$1
-    local subd=$2
-    local rec
-    local ip
+    dom=$1
+    subd=$2
     rec=$(dig "$subd"."$dom" +noall +answer +nocomments | awk '{print $4}')
     ip=$(dig "$subd"."$dom" +noall +answer +nocomments | awk '{print $5}')
     
