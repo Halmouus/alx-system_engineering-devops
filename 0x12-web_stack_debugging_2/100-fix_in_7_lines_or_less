@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # Bash script to reconfigure Nginx so that Nginx
-# runs as the nginx user and listens on port
-# 8080 on all active IPs
-
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
