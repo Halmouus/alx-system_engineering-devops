@@ -32,6 +32,5 @@ if __name__ == "__main__":
     csv_file = f"{idVar}.csv"
     with open(csv_file, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=dict_list[0].keys())
-        writer.writeheader()
         for todo_dict in dict_list:
             writer.writerow(todo_dict)
