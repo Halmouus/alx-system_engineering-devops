@@ -24,13 +24,13 @@ if __name__ == "__main__":
         todos = todos_data.json()
         for todo in todos:
             if todo["userId"] == int(idVar):
-                title_list.append(todo["title"])
                 if todo["completed"]:
                     completed += 1
+                    title_list.append(todo["title"])
                 else:
                     non_completed += 1
 
         print(f"Employee {name} is done with tasks"
               f"({completed}/{non_completed + completed}):")
-        for i in range(completed):
-            print(f"\t {title_list[i]}")
+        for task in title_list:
+            print(f"\t {task}")
