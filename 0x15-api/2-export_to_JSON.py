@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ script that, using this REST API,
 for a given employee ID, returns information
-about his/her todo list andexport data in the CSV format."""
+about his/her todo list andexport data in the JSON format."""
 import csv
 import json
 import requests
