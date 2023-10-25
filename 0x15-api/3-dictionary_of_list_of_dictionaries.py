@@ -12,7 +12,7 @@ if __name__ == "__main__":
     if todos_data.status_code == 200:
         todos = todos_data.json()
         todo_dict = {}
-        for i in range(1, 10):
+        for i in range(1, 11):
             resp = requests.get(f'{url}/users/{i}')
             if resp.status_code == 200:
                 user_info = resp.json()
