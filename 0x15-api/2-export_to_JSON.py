@@ -18,18 +18,18 @@ if __name__ == "__main__":
     todos_data = requests.get('https://jsonplaceholder.typicode.com/todos')
 
     if todos_data.status_code == 200:
-        dict_list = []
         todos = todos_data.json()
-        for todo in todos:
-            if todo["userId"] == int(idVar):
-                todo_dict = {}
-                todo_dict["USER_ID"] = f"{idVar}"
-                todo_dict["USERNAME"] = f"{username}"
-                todo_dict["TASK_COMPLETED_STATUS"] = f"{todo['completed']}"
-                todo_dict["TASK_TITLE"] = f"{todo['title']}"
-                dict_list.append(todo_dict)
-                
-    json_todo = dict_list.json()
-    jsonfile = f"{idVar}.json"
-    with open(jsonfile, 'w') as json_file:
-        json.dump(json_todo, json_file, indent=4)
+        dict_list = [
+            {
+                "task": todo['title'],
+                "completed": todo['completed'],
+                "username": username
+            }
+            for todo in todos
+            if todo["userId"] == int(idVar)
+        ]
+        global_dict = {idVar: dict_list}
+        json_todo = json.dumps(global_dict)
+        jsonfile = f"{idVar}.json"
+        with open(jsonfile, 'w') as json_file:
+            json_file.write(json_todo)
